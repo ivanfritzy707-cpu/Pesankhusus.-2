@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan Spesial & Taman Bunga Mewah Untuk Rani Sya'adah ✨</title>
+    <!-- Tailwind CSS for modern utility styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Confetti library for celebration effect -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.6.0/confetti.browser.min.js"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+            background-size: 400% 400%;
+            animation: goldGradient 18s ease infinite;
+            min-height: 100vh;
+            color: #2c2c2c;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes goldGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .font-serif-luxury {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Luxury gold overlay texture with subtle floral hint */
+        .bg-luxury-gold-pattern {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.28) 1px, transparent 1px),
+                              radial-gradient(rgba(139, 99, 8, 0.18) 1px, transparent 1px);
+            background-size: 45px 45px;
+            background-position: 0 0, 22px 22px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border: 1px solid rgba(255, 223, 128, 0.9);
+            box-shadow: 0 35px 70px -15px rgba(90, 65, 10, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.95) inset;
+        }
+
+        @keyframes floatGentle {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-18px) rotate(8deg); }
+        }
+        .animate-float {
+            animation: floatGentle 6s ease-in-out infinite;
+        }
+
+        @keyframes floatReverse {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(20px) rotate(-10deg); }
+        }
+        .animate-float-rev {
+            animation: floatReverse 7s ease-in-out infinite;
+        }
+
+        /* Falling rose petals animation */
+        @keyframes petalFall {
+            0% { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.9; }
+            100% { transform: translateY(110vh) translateX(60px) rotate(360deg); opacity: 0; }
+        }
+        .falling-petal {
+            position: absolute;
+            pointer-events: none;
+            user-select: none;
+            z-index: 1;
+            animation: petalFall linear infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+        .animate-pulse-glow {
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c59b27;
+            border-radius: 4px;
+        }
+
+        /* Dodging button smooth transition */
+        #btn-tidak {
+            transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease;
+            position: relative;
+            z-index: 50;
+            touch-action: none;
+        }
+
+        .floral-bg-item {
+            position: absolute;
+            pointer-events: none;
+            user-select: none;
+            z-index: 1;
+            opacity: 0.88;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.12));
+        }
+    </style>
+</head>
+<body id="main-body" class="bg-luxury-gold-pattern flex flex-col items-center justify-center p-4 sm:p-6 md:p-8">
+
+    <div class="fixed top-4 right-4 z-50 flex items-center gap-2 bg-white/92 backdrop-blur-md px-3.5 py-2.5 rounded-2xl shadow-xl border border-amber-200">
+        <span class="text-xs font-bold text-amber-900 hidden sm:inline">Tema:</span>
+        <button onclick="setTheme('gold'); playSound('click');" title="Gold Mewah" class="w-6 h-6 rounded-full bg-gradient-to-r from-amber-400 to-yellow-600 border border-white shadow-sm hover:scale-110 transition-transform"></button>
+        <button onclick="setTheme('rose'); playSound('click');" title="Rose Gold" class="w-6 h-6 rounded-full bg-gradient-to-r from-rose-300 to-pink-500 border border-white shadow-sm hover:scale-110 transition-transform"></button>
+        <button onclick="setTheme('emerald'); playSound('click');" title="Emerald Velvet" class="w-6 h-6 rounded-full bg-gradient-to-r from-emerald-600 to-teal-800 border border-white shadow-sm hover:scale-110 transition-transform"></button>
+        <button onclick="setTheme('midnight'); playSound('click');" title="Midnight Luxury" class="w-6 h-6 rounded-full bg-gradient-to-r from-slate-900 to-indigo-950 border border-white shadow-sm hover:scale-110 transition-transform"></button>
+        <button onclick="setTheme('cream'); playSound('click');" title="Warm Cream" class="w-6 h-6 rounded-full bg-gradient-to-r from-amber-100 to-orange-200 border border-white shadow-sm hover:scale-110 transition-transform"></button>
+        <input type="color" id="custom-color-picker" onchange="setCustomColor(this.value); playSound('click');" title="Pilih Warna Bebas" class="w-6 h-6 rounded-full border-0 cursor-pointer p-0 bg-transparent">
+        
+        <!-- Flower Garden Mode Toggle Button -->
+        <button onclick="toggleFlowerMode(); playSound('click');" id="flower-mode-btn" class="ml-1 px-2.5 py-1 rounded-xl bg-amber-100 text-amber-900 text-xs font-semibold hover:bg-amber-200 transition-colors border border-amber-300 flex items-center gap-1" title="Mode Taman Bunga & Mawar">
+            <span>🌹</span> <span id="flower-mode-text" class="hidden md:inline">Taman Bunga: On</span>
+        </button>
+    </div>
+
+    <div id="floral-container" class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <!-- Floating flowers -->
+        <div class="floral-bg-item text-3xl animate-float top-12 left-10" style="animation-delay: 0s;">🌹</div>
+        <div class="floral-bg-item text-2xl animate-float-rev top-28 right-16" style="animation-delay: 1.5s;">🌸</div>
+        <div class="floral-bg-item text-3xl animate-float bottom-20 left-1/6" style="animation-delay: 3s;">🌷</div>
+        <div class="floral-bg-item text-2xl animate-float-rev bottom-32 right-1/5" style="animation-delay: 2s;">🌺</div>
+        <div class="floral-bg-item text-2xl animate-float top-1/2 left-6" style="animation-delay: 0.8s;">💐</div>
+        <div class="floral-bg-item text-3xl animate-float-rev top-1/3 right-10" style="animation-delay: 2.5s;">🌹</div>
+        <div class="floral-bg-item text-xl animate-float bottom-10 right-1/3" style="animation-delay: 4s;">✨</div>
+
+        <!-- Dynamic Falling Petals -->
+        <div class="falling-petal text-rose-500 text-xl" style="left: 10%; animation-duration: 9s; animation-delay: 0s;">🌸</div>
+        <div class="falling-petal text-pink-500 text-lg" style="left: 30%; animation-duration: 12s; animation-delay: 2s;">🌹</div>
+        <div class="falling-petal text-amber-500 text-xl" style="left: 55%; animation-duration: 10s; animation-delay: 1s;">🌷</div>
+        <div class="falling-petal text-rose-400 text-sm" style="left: 75%; animation-duration: 14s; animation-delay: 3s;">🌸</div>
+        <div class="falling-petal text-red-500 text-lg" style="left: 90%; animation-duration: 11s; animation-delay: 4s;">🌹</div>
+    </div>
+
+    <div class="relative z-10 w-full max-w-xl glass-card rounded-3xl p-6 sm:p-10 transition-all duration-500 mt-14 sm:mt-0">
+        
+        <!-- Header Info Bar -->
+        <div class="flex items-center justify-between pb-5 border-b border-amber-200/70 mb-6">
+            <div class="flex items-center gap-2.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-ping"></span>
+                <span class="text-xs font-semibold tracking-wider uppercase text-amber-900">Pesan Emas & Taman Bunga Spesial</span>
+            </div>
+            <div class="bg-amber-100/90 text-amber-900 text-xs font-semibold px-3.5 py-1 rounded-full border border-amber-300/70 shadow-sm flex items-center gap-1.5">
+                <span>🌹</span> Untuk Rani Sya'adah
+            </div>
+        </div>
+
+        <!-- Progress Steps Bar -->
+        <div class="mb-6 flex items-center justify-between">
+            <div class="flex gap-1.5 w-full max-w-[200px]">
+                <div id="prog-1" class="h-1.5 flex-1 rounded-full bg-amber-600 transition-all duration-400"></div>
+                <div id="prog-2" class="h-1.5 flex-1 rounded-full bg-amber-200 transition-all duration-400"></div>
+                <div id="prog-3" class="h-1.5 flex-1 rounded-full bg-amber-200 transition-all duration-400"></div>
+                <div id="prog-4" class="h-1.5 flex-1 rounded-full bg-amber-200 transition-all duration-400"></div>
+            </div>
+            <span id="step-counter" class="text-xs font-semibold text-amber-800">Bagian 1 dari 4</span>
+        </div>
+
+        <div class="min-h-[320px] flex flex-col justify-between">
+            
+            <!-- Slide 1 -->
+            <div id="slide-1" class="space-y-4 transition-all duration-400">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-amber-100/80 text-amber-900 text-xs font-medium mb-1 border border-amber-200">
+                    <span>🌹</span> 1. Niat Baik & Pengantar
+                </div>
+                <h1 class="font-serif-luxury text-2xl sm:text-3xl font-bold text-stone-900 tracking-tight">
+                    Rani Sya'adah, izinkan aku menyampaikan ini...
+                </h1>
+                <p class="text-stone-700 text-sm sm:text-base leading-relaxed">
+                    Rani Sya'adah, ya itu kamu, disini izinkan aku ngmong hal ini ya sama kamu, aku dari awal sudah ngerasa dan udh mempersiapkan ini semuanya dengan baik, mental dan apapun keputusan yang kamu ambil, insya Allah aku akan terima. Rani, jujur aku membutuhkan kepastian.
+                </p>
+                <div class="bg-amber-50/90 p-4 rounded-2xl border border-amber-200/80 text-xs sm:text-sm text-stone-800 italic leading-relaxed">
+                    "Kamu ingat waktu aku <i>confess</i> ke kamu? Nah itu jawaban kamu gimana? Ya jawabannya <i>'Maaf kak bukannya aku nolak, aku belum ada perasaan ke kaka.'</i> Aku belum denger jawaban yang iya atau engga, atau juga bisa mau atau ngga..."
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div id="slide-2" class="space-y-4 hidden transition-all duration-400">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-amber-100/80 text-amber-900 text-xs font-medium mb-1 border border-amber-200">
+                    <span>💐</span> 2. Kesungguhan Hati & Janji
+                </div>
+                <h2 class="font-serif-luxury text-2xl sm:text-3xl font-bold text-stone-900 tracking-tight">
+                    Kesungguhan & Janji Tulusku untuk Kamu
+                </h2>
+                <p class="text-stone-700 text-sm sm:text-base leading-relaxed">
+                    Dekk, apabila jawaban kamu memutuskan untuk menerima aku atau jawab iya (mau), insya Allah aku bakal siap buat apapun yg kamu mau. Kmu mau waktu buat main sama temen? Tentu aja itu juga kan hak kamu, dan apapun itu.
+                </p>
+                <ul class="space-y-2 text-xs sm:text-sm text-stone-800 bg-amber-50/70 p-4 rounded-2xl border border-amber-200/60">
+                    <li class="flex items-center gap-2.5"><span>🤍</span> Bakal sayang, Cinta ke ortu dan kamu aja (bener ya aku ga lgi boong).</li>
+                    <li class="flex items-center gap-2.5"><span>🔒</span> Klo perlu kontak cewek di hp ku ku apus smua kecuali kontak keluargaku & kamu.</li>
+                    <li class="flex items-center gap-2.5"><span>🛡️</span> Ninggalin kamu? Ngecewain? Aku usahain gaakan ku lakuin kecuali aku yg ditinggal.</li>
+                </ul>
+            </div>
+
+            <!-- Slide 3 -->
+            <div id="slide-3" class="space-y-4 hidden transition-all duration-400">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-amber-100/80 text-amber-900 text-xs font-medium mb-1 border border-amber-200">
+                    <span>🌷</span> 3. Tanpa Paksaan
+                </div>
+                <h2 class="font-serif-luxury text-2xl sm:text-3xl font-bold text-stone-900 tracking-tight">
+                    Keputusan Sepenuhnya di Tanganmu
+                </h2>
+                <p class="text-stone-700 text-sm sm:text-base leading-relaxed">
+                    Dan apabila jawabannya tidak, insya Allah aku bakal nerima itu meskipun berat harus ku lapang dada, aku ga maksa pokoknya keputusan ada di kamu, aku ga maksa, tapi cuman butuh kepastian.
+                </p>
+                <div class="p-4 rounded-2xl bg-amber-50/90 border border-amber-200/80 text-xs sm:text-sm text-stone-800 font-medium leading-relaxed">
+                    "Okee jangan di paksa ya cukup jawab dengan hati, perasaan yg paling dalam dari mu yaa... Namamu <i>always on my prayers...</i>" 🙏✨
+                </div>
+            </div>
+
+            <!-- Slide 4: Decision Screen with Dodging Button -->
+            <div id="slide-4" class="space-y-4 hidden transition-all duration-400 text-center py-2">
+                <div class="inline-flex p-3 bg-amber-100 text-amber-800 rounded-full mb-1 shadow-inner animate-pulse-glow border border-amber-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                </div>
+                <h2 class="font-serif-luxury text-2xl font-bold text-stone-900">
+                    Maukah kamu memberikan kesempatan?
+                </h2>
+                <p class="text-stone-700 text-sm max-w-md mx-auto leading-relaxed">
+                    Menerima aku buat jadi cowomu (boyfriend) and kamu adalah ceweku (girlfriend) dan bagian dari hatimu?
+                </p>
+
+                <!-- Decision Buttons Container with Automatic Dodging for Touchscreen & Mouse -->
+                <div id="decision-area" class="relative h-36 flex items-center justify-center gap-4 pt-4 overflow-hidden">
+                    <button onclick="handleChoice('mau'); playSound('success');" class="w-38 bg-amber-900 hover:bg-amber-800 text-amber-100 font-semibold py-3.5 px-6 rounded-xl shadow-lg transition-all text-sm flex items-center justify-center gap-2 group z-30 border border-amber-600">
+                        <span class="group-hover:scale-125 transition-transform">💖</span> Mau / Iya
+                    </button>
+                    
+                    <!-- The Automatic Dodging Button ("Tidak / Belum") -->
+                    <button id="btn-tidak" 
+                            onmouseenter="dodgeButton(); playSound('whoosh');" 
+                            ontouchstart="dodgeButton(); playSound('whoosh');" 
+                            onclick="handleChoice('tidak')" 
+                            class="w-38 bg-white hover:bg-stone-50 text-stone-700 font-medium py-3.5 px-6 rounded-xl border border-stone-300 shadow-sm text-sm flex items-center justify-center gap-2 select-none">
+                        <span>🌹</span> Tidak / Belum
+                    </button>
+                </div>
+                <p id="subtle-hint" class="text-xs text-amber-900 font-semibold pt-1">Tombol "Tidak / Belum" nya otomatis lari kalau mau diklik atau disentuh! 🌸✨</p>
+            </div>
+
+            <!-- Result View -->
+            <div id="result-view" class="hidden space-y-4 text-center py-4">
+                <div id="result-icon" class="text-4xl mb-2">🎉</div>
+                <h2 id="result-title" class="font-serif-luxury text-2xl font-bold text-stone-900">Terima Kasih, Rani Sya'adah</h2>
+                <p id="result-desc" class="text-stone-700 text-sm sm:text-base leading-relaxed max-w-md mx-auto"></p>
+                <button onclick="resetFlow(); playSound('click');" class="mt-4 bg-amber-100 hover:bg-amber-200 text-amber-900 font-semibold py-2.5 px-5 rounded-xl text-xs transition-all inline-flex items-center gap-1.5 shadow-sm border border-amber-300">
+                    <span>🔄</span> Baca Ulang Pesan dari Awal
+                </button>
+            </div>
+
+        </div>
+
+        <div id="nav-footer" class="mt-8 pt-4 border-t border-amber-200/70 flex items-center justify-between">
+            <button id="prev-btn" onclick="changeSlide(-1); playSound('click');" class="px-4 py-2 rounded-xl text-xs font-bold text-amber-800 hover:text-amber-950 disabled:opacity-30 disabled:hover:text-amber-800 transition-all flex items-center gap-1.5" disabled>
+                <span>←</span> Sebelumnya
+            </button>
+            <button id="next-btn" onclick="changeSlide(1); playSound('click');" class="bg-amber-800 hover:bg-amber-900 text-amber-100 px-5 py-2.5 rounded-xl text-xs font-semibold shadow-md transition-all flex items-center gap-1.5 border border-amber-600">
+                <span>Selanjutnya</span> <span>→</span>
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 4;
+        let dodgeAttempts = 0;
+        let flowerModeActive = true;
+
+        // Web Audio API Sound Effects Synthesizer
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playSound(type) {
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            if (type === 'click') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(600, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.08);
+                gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.08);
+            } else if (type === 'whoosh') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(300, audioCtx.currentTime);
+                osc.frequency.linearRampToValueAtTime(150, audioCtx.currentTime + 0.12);
+                gainNode.gain.setValueAtTime(0.12, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.12);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.12);
+            } else if (type === 'success') {
+                const now = audioCtx.currentTime;
+                [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
+                    const o = audioCtx.createOscillator();
+                    const g = audioCtx.createGain();
+                    o.type = 'sine';
+                    o.frequency.setValueAtTime(freq, now + i * 0.08);
+                    g.gain.setValueAtTime(0.15, now + i * 0.08);
+                    g.gain.exponentialRampToValueAtTime(0.001, now + i * 0.08 + 0.4);
+                    o.connect(g);
+                    g.connect(audioCtx.destination);
+                    o.start(now + i * 0.08);
+                    o.stop(now + i * 0.08 + 0.4);
+                });
+            }
+        }
+
+        // Theme Switcher Functions
+        function setTheme(theme) {
+            const body = document.getElementById('main-body');
+            body.style.animation = 'none';
+            
+            if (theme === 'gold') {
+                body.style.background = 'linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%)';
+            } else if (theme === 'rose') {
+                body.style.background = 'linear-gradient(135deg, #e0aaff 0%, #ffc6ff 25%, #ff8fab 50%, #ffb7b2 75%, #c77dff 100%)';
+            } else if (theme === 'emerald') {
+                body.style.background = 'linear-gradient(135deg, #022f2e 0%, #044e4a 25%, #0f766e 50%, #14b8a6 75%, #042f2e 100%)';
+            } else if (theme === 'midnight') {
+                body.style.background = 'linear-gradient(135deg, #090d16 0%, #1e1b4b 25%, #312e81 50%, #1e293b 75%, #020617 100%)';
+            } else if (theme === 'cream') {
+                body.style.background = 'linear-gradient(135deg, #fdfbf7 0%, #f4ebd0 50%, #e6d5b8 100%)';
+            }
+        }
+
+        function setCustomColor(color) {
+            const body = document.getElementById('main-body');
+            body.style.animation = 'none';
+            body.style.background = `linear-gradient(135deg, ${color} 0%, #ffffff 50%, ${color} 100%)`;
+        }
+
+        // Flower Garden Mode Toggle
+        function toggleFlowerMode() {
+            flowerModeActive = !flowerModeActive;
+            const container = document.getElementById('floral-container');
+            const btnText = document.getElementById('flower-mode-text');
+            const btn = document.getElementById('flower-mode-btn');
+
+            if (flowerModeActive) {
+                container.style.display = 'block';
+                btnText.textContent = 'Taman Bunga: On';
+                btn.className = 'ml-1 px-2.5 py-1 rounded-xl bg-amber-100 text-amber-900 text-xs font-semibold hover:bg-amber-200 transition-colors border border-amber-300 flex items-center gap-1';
+            } else {
+                container.style.display = 'none';
+                btnText.textContent = 'Taman Bunga: Off';
+                btn.className = 'ml-1 px-2.5 py-1 rounded-xl bg-stone-200 text-stone-700 text-xs font-semibold hover:bg-stone-300 transition-colors border border-stone-300 flex items-center gap-1';
+            }
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 1) currentSlide = 1;
+            if (currentSlide > totalSlides) currentSlide = totalSlides;
+
+            updateSlideView();
+        }
+
+        function updateSlideView() {
+            for (let i = 1; i <= totalSlides; i++) {
+                document.getElementById(`slide-${i}`).classList.add('hidden');
+                document.getElementById(`prog-${i}`).className = "h-1.5 flex-1 rounded-full bg-amber-200 transition-all duration-400";
+            }
+
+            document.getElementById(`slide-${currentSlide}`).classList.remove('hidden');
+            
+            for (let i = 1; i <= currentSlide; i++) {
+                document.getElementById(`prog-${i}`).className = "h-1.5 flex-1 rounded-full bg-amber-700 transition-all duration-400";
+            }
+
+            document.getElementById('step-counter').textContent = `Bagian ${currentSlide} dari ${totalSlides}`;
+
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const navFooter = document.getElementById('nav-footer');
+
+            prevBtn.disabled = (currentSlide === 1);
+
+            if (currentSlide === totalSlides) {
+                navFooter.classList.add('hidden');
+            } else {
+                navFooter.classList.remove('hidden');
+                nextBtn.innerHTML = `<span>Selanjutnya</span> <span>→</span>`;
+            }
+        }
+
+        // Automatic Dodging Button Function for Mouse & Touchscreen Taps
+        function dodgeButton() {
+            const btnTidak = document.getElementById('btn-tidak');
+            const hint = document.getElementById('subtle-hint');
+            dodgeAttempts++;
+
+            const randomX = (Math.random() - 0.5) * 240;
+            const randomY = (Math.random() - 0.5) * 110;
+            
+            btnTidak.style.transform = `translate(${randomX}px, ${randomY}px)`;
+
+            if (dodgeAttempts === 1) {
+                hint.textContent = "Eh, tombol 'Tidak / Belum' nya otomatis lari saat didekati atau disentuh! Coba pilih 'Mau / Iya' ya. 🌹✨";
+            } else if (dodgeAttempts === 3) {
+                hint.textContent = "Wah, tombol itu emang ga mau ditekan karena maunya kamu pilih yang 'Mau / Iya'! 🥰";
+            } else if (dodgeAttempts >= 5) {
+                hint.textContent = "Udah kejar-kejaraannya, mending pencet 'Mau / Iya' yaa biar hatiku tenang! 💖";
+            }
+        }
+
+        function handleChoice(choice) {
+            document.getElementById('slide-4').classList.add('hidden');
+            document.getElementById('nav-footer').classList.add('hidden');
+            
+            const resultView = document.getElementById('result-view');
+            const resultTitle = document.getElementById('result-title');
+            const resultDesc = document.getElementById('result-desc');
+            const resultIcon = document.getElementById('result-icon');
+
+            resultView.classList.remove('hidden');
+
+            if (choice === 'mau') {
+                confetti({
+                    particleCount: 260,
+                    spread: 140,
+                    origin: { y: 0.6 },
+                    colors: ['#bf953f', '#fcf6ba', '#b38728', '#ffffff', '#e879f9', '#f43f5e', '#fb7185']
+                });
+
+                resultIcon.innerHTML = '💖🌹👑';
+                resultTitle.textContent = "Alhamdulillah, Terima Kasih Rani Sya'adah!";
+                resultDesc.innerHTML = `
+                    Keputusan yang sangat berarti bagiku. Insya Allah aku akan selalu menjaga kepercayaan ini, merawat hubungan dengan tulus, dan berusaha menjadi yang terbaik untukmu ke depannya di bawah naungan berkah dan kebahagiaan. 🥰✨
+                `;
+            } else {
+                resultIcon.innerHTML = '🤍🌷🕊️';
+                resultTitle.textContent = "Keputusanmu Sangat Dihargai";
+                resultDesc.innerHTML = `
+                    Terima kasih banyak Rani sudah membaca dan merespons dengan jujur dari lubuk hati. Aku sangat menghargai kejujuranmu dan mendoakan yang terbaik selalu untuk setiap langkahmu ke depan. 🙏
+                `;
+            }
+        }
+
+        function resetFlow() {
+            currentSlide = 1;
+            dodgeAttempts = 0;
+            document.getElementById('result-view').classList.add('hidden');
+            document.getElementById('subtle-hint').textContent = 'Tombol "Tidak / Belum" nya otomatis lari kalau mau diklik atau disentuh! 🌸✨';
+            const btnTidak = document.getElementById('btn-tidak');
+            btnTidak.style.transform = 'translate(0px, 0px)';
+            updateSlideView();
+        }
+    </script>
+</body>
+</html>
